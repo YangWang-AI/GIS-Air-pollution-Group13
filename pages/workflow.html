@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Workflow</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/custom-styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body class="left-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo">Mapping Air Quality Group13 - Workflow</h1>
+        <nav id="nav">
+          <ul>
+            <li class="current"><a href="../index.html">HOME</a></li>
+            <li class="current"><a href="workflow.html">Workflow</a></li>
+            <li class="current"><a href="result.html">Results</a></li>
+            <li class="current"><a href="webgis.html">WebGIS</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <article id="main">
+        <header class="special container">
+          <span class="icon solid fa-globe"></span>
+          <h2>
+            <strong style="font-size: 2em">Workflow</strong>
+          </h2>
+          <p style="font-size: 1.5em">
+            In this part, we will show you all the steps we did to obtain all
+            our final results including Time series analysis and potential source analysis.
+          </p>
+        </header>
+        <!--Step1-->
+        <div class="wrapper style4 container">
+          <div>
+            <div>
+              <h2 style="text-align: center">Step1 Data Collection</h2>
+              <!--Origin Data-->
+              <p>
+                <strong>
+                  <p>• Download CAMS NetCDF datasets for NO₂ and PM2.5 (2013–2022)</p>
+                  <p>• Retrieve WorldPop 2020 population raster</p>
+                  <p>• Acquire GAUL Level-2 administrative boundaries</p>
+                  <p>• Obtain ESA CCI Land Cover raster (2013-2022)</p></strong>
+              </p>
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
+                <strong>
+                  <p>Firstly, according to the experimental requirements, the Bulgarian vectors were extracted by downloading CAMS NetCDF datasets for NO₂ and PM2.5, Retrieve WorldPop 2020 population raster, Acquire GAUL Level-2 administrative boundaries, Obtain ESA CCI Land Cover 2022 raster.</p>
+                  <p>Then process CAMS NetCDF data to supplement the December 2022 summary into monthly raster maps.</p>
+                 </strong>
+              </p>
+              <figure style="text-align: center">
+                <img
+                  src="../images/step1/lab_step1.png"
+                  alt=""
+                  style="width: 100%; height: 100%"/>
+                <figcaption>Pollutants December 2022 Raster Map</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!--Step2-->
+        <div class="wrapper style4 container">
+          <!-- Content -->
+
+          <div>
+            <div>
+              <h2 style="text-align: center">
+                Step2 Data Preprocessing
+              </h2>
+              <p style="margin-top: 3em">
+                <strong>
+                  <p>• Clip all rasters to the national boundary of Bulgaria</p>
+                  <p>• population raster into five classes</p>
+                  <p>• Reclassify pollutant concentration into five risk levels</p>
+                  <p>• Simplification of the ESA CCI Land Cover 2013-2022 raster based on the IPCC generic model</p>
+                  <p>• Convert monthly/annual NetCDF data into raster layers</p>
+                  <p>• Calculation of a plot of the difference between a calendar year and its average over the previous five years</p></strong>
+              </p>
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
+                <strong>
+                  <p>First, we used QGIS to summarize the processed monthly data and calculate annual and seasonal averages. To analyze inter-annual as well as seasonal variations in pollutants.</p>
+                  <p>Then, We then reclassify population, pollutant concentration, and land cover according to the relevant norms</p>
+                 </strong>
+              </p>
+              <figure style="text-align: center">
+                <img
+                  src="../images/step2/EU_concentration_levels.png"
+                  alt=""
+                  style="width: 100%; height: 100%"
+                />
+                <figcaption>EU concentration levels</figcaption>
+              </figure>
+              <p></p>
+              <figure style="text-align: center">
+                <img
+                  src="../images/step2/Population_level.png"
+                  alt=""
+                  style="width: 100%; height: auto"
+                />
+                <figcaption>Population level</figcaption>
+              </figure>
+              <p></p>
+              <figure style="text-align: center">
+                <img
+                  src="../images/step2/Landcover_classification.png"
+                  alt=""
+                  style="width: 100%; height: 100%"/>
+                <figcaption>Landcover classification</figcaption>
+              </figure>
+              
+                <figure style="text-align: center">
+                  <img
+                    src="../images/step2/Bulgaria_LC_reclassiffied_2022.png"
+                    alt=""
+                    style="width: 100%; height: 100%"/>
+                  <figcaption>Landcover reclassification 2022</figcaption>
+                </figure>
+                <p></p>
+                <strong>
+                  <p>Next, we compute difference maps comparing 2022 with the 2017-2021 average to analyze the deviation of air quality from the recent historical average.</p>
+                 </strong>
+                 <figure style="text-align: center">
+                  <img
+                    src="../images/step2/Bulgaria_NO2_2017-2021_AAD_map_2022.jpg"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                    <img
+                    src="../images/step2/Bulgaria_PM2p5_2017-2021_AAD_map_2022_qgis.jpg"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                  <figcaption>Pollutants Plot of differences between 2022 and 2017-2021 averages</figcaption>
+                </figure>
+
+                 <strong>
+                  <p>Take care to ensure consistency in the data to ensure that the data are at the same resolution, Lets resample the CAMS (Average pollutant maps 
+                    all years) to match the ESA LC product.</p>
+                 </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+          <!--Step4-->
+        <div class="wrapper style4 container">
+          <!-- Content -->
+          <div>
+            <div>
+              <h2 style="text-align: center">step3 Land Cover-Based Exposure Analysis</h2>
+              <p style="margin-top: 3em">
+                <strong>
+                  <p>• Convert ESA CCI 2022 land cover raster to vector polygons</p>
+                  <p>• Retain only the "Settlement/Urban" land cover class</p>
+                  <p>• Dissolve urban polygons into a single geometry</p>
+                  <p>• Use the dissolved urban mask to extract average and maximum pollutant exposure via zonal statistics</p></strong>
+              </p>
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
+                <strong>
+                  <p>We convert only the built-up areas to vectors and perform partition statistics (zoning statistics) on them.</p>
+                  <p>Then we used the layer Joins to add Min and Max for all years 2013-2022.</p>
+                 </strong>
+                 <figure style="text-align: center">
+                  <img
+                    src="../images/step3/Bulgaria_no2_zonal_statistics_2013-2022.png"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                    <img
+                    src="../images/step3/Bulgaria_pm2p5_zonal_statistics_2013-2022.png"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                  <figcaption>Minimum and maximum trends for camp pollutants for the period 2013-2022</figcaption>
+                </figure>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!--Step4-->
+        <div class="wrapper style4 container">
+          <!-- Content -->
+
+          <div>
+            <div>
+              <h2 style="text-align: center">
+                Step4 Zonal Statistics
+              </h2>
+              <p style="margin-top: 3em">
+                <strong>
+                  <p>• Compute zonal population class median per administrative unit</p>
+                  <p>• Extract maximum pollutant values per unit using zonal statistics</p>
+                  <p>• Combine population and pollution data to generate a bivariate exposure indicator</p></strong>
+              </p>
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
+                <strong>
+                  <p>First, we use QGIS, in quantile mode, to divide the data into five classes such that each class contains the same number of features or pixels, regardless of the actual range of values.</p>
+                  <p>Then, we use the Bulgarian GAUL L2 data to calculate raster statistics for pollutants and population.</p>
+                  <figure style="text-align: center">
+                    <img
+                      src="../images/step4/Bulgaria_no2_concentration_map_2020.jpg"
+                      alt=""
+                      style="width: 49%; height: 100%"/>
+                      <img
+                      src="../images/step4/Bulgaria_pm2p5_concentration_map_2020 .jpg"
+                      alt=""
+                      style="width: 49%; height: 100%"/>
+                    <figcaption>Pollutant Concentration 2020 Hierarchical Map</figcaption>
+                  </figure>
+                  <p>Then to reveal spatial patterns of interactions and to explore heavily polluted and densely populated areas, we define the \(bivariate=pollutant class max*10+population class median\).</p>
+                 </strong>
+                 <figure style="text-align: center">
+                  <img
+                    src="../images/step4/doublevarive.png"
+                    alt=""
+                    style="max-width: 100%; height: auto"
+                  />
+                  <figcaption>Bivariate schema</figcaption>
+                </figure>
+              </p>
+            </div>
+          </div>
+        </div>      
+ <!--Step5-->
+ <div class="wrapper style4 container">
+  <!-- Content -->
+
+  <div>
+    <div>
+      <h2 style="text-align: center">Step5 Highlight</h2>
+      <p style="margin-top: 3em">
+        <strong>
+          <p>• Time Series Analysis</p>
+          <p>Data used in this analysis are derived from CAMS (Copernicus Atmosphere Monitoring Service) NetCDF datasets.
+Hourly pollutant concentrations of PM2.5 and NO₂ were extracted for December (2013–2022) using QGIS mesh tools.
+One point was selected from a densely urbanized area where pollutant concentrations were relatively high in the annual average distribution. This point was used as a representative location for time-series extraction.
+The values at 00:00 and 12:00 were exported and visualized using MATLAB.</p>
+          <p>• potential source analysis</p>
+          <p>Based on the Global Data Assimilation System Reanalysis of Meteorological Data (GDAS), the backward trajectory model of HYSPLIT was used to simulate the backward trajectory of the air 500m above sofia from December 2022, and the spatial similarity of the trajectories was further computed by applying the angular distance function so as to cluster the trajectories. The direction of the possible sources of pollutants was thus analyzed.</p>
+          <p>The generated maps (e.g., land cover reclassification maps, binary exposure maps combining population and contamination risk, pie charts summarizing population distribution by exposure class, etc.) can be found on the visible page<a href="result.html"> Results </a> and<a href="webgis.html"> WebGIS </a>.</p>
+         </strong>
+      </p>
+    </div>
+  </div>
+</div>        
+      </article>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/browser.min.js"></script>
+    <script src="/js/breakpoints.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

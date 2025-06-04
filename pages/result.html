@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Result</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/custom-styles.css" />
+    <script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+  </head>
+  <body class="left-sidebar is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo">Mapping Air Quality Group13 - Result</h1>
+        <nav id="nav">
+          <ul>
+            <li class="current"><a href="../index.html">HOME</a></li>
+            <li class="current"><a href="workflow.html">Workflow</a></li>
+            <li class="current"><a href="result.html">Results</a></li>
+            <li class="current"><a href="webgis.html">WebGIS</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <article id="main">
+        <header class="special container">
+          <span class="icon solid fa-globe"></span>
+          <h2>
+            <strong style="font-size: 2em">Results</strong>
+          </h2>
+          <p style="font-size: 1.5em">
+            In this part, you can explore the final results of our analysis. The
+            results is divided into 3 parts, The first part is a spatio-temporal analysis of air pollution, the second part is an exploration of spatial patterns of air pollution and population exposure, and the third part is a time series analysis and potential source analysis.
+          </p>
+        </header>
+
+        <!-- One -->
+        <div class="wrapper style4 container">
+          <!-- Content -->
+          <div>
+            <div>
+              <h2 style="text-align: center">1. Spatio-temporal analysis of air pollution</h2>
+              <div style="text-align: center; margin-bottom: 3em">
+                <figure>
+                  <img
+                    src="../images/result/seasonality.png"
+                    alt=""
+                    style="max-width: 100%; height: auto"
+                  /><figcaption>Seasonal variation of pollutants</figcaption>
+                </figure>
+              </div>
+              <p>
+                First we calculated the annual mean for each pollutant and analyzed the Annual Average Difference from 5-year Mean and the ten-year seasonal aggregation, and found that the pollution in Bulgaria reached a ten-year peak in 16 years, and has decreased in recent years. It shows a seasonal distribution pattern, with lighter pollution in summer and the most severe air pollution in winter.
+              </p>
+              <p>Secondly, it also has certain characteristics in space, where the distribution of pollutants is concentrated in polycentric form, radiating outward around major metropolitan areas.</p>
+              <p>We therefore considered focusing on December of the calendar year in our subsequent time-series analysis.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrapper style4 container">
+          <!-- Content -->
+          <div>
+            <div>
+              <h2 style="text-align: center">2. Exploration of spatial patterns of air pollution and population exposure</h2>
+              <div style="text-align: center; margin-bottom: 3em">
+                <figure>
+                  <img
+                    src="../images/result/Bulgaria_no2_2020_bivariate.jpg"
+                    alt=""
+                    style="max-width: 49%; height: auto"
+                  />
+                  <img
+                  src="../images/result/Bulgaria_pm2p5_2020_bivariate.jpg"
+                  alt=""
+                  style="max-width: 49%; height: auto"
+                />
+                  <figcaption>Bivariate regional analysis of pollutants</figcaption>
+                </figure>
+              </div>
+              <p>
+                Based on the bivariate maps of pollutants, we can well reveal their spatial patterns, especially the degree of their air pollution is somewhat positively correlated with human economic activities. Sofia, the capital region of Bulgaria, is a highly polluted and densely populated area.
+              </p>
+              <P>To better quantify the actual impact of pollution on the population, we generated pie charts based on the bivariate map classifications</P>
+              <div id="997b6d83-e642-40ee-a53f-513e177a68ba" style="height:600px; width:100%;"></div>
+              <script>
+                  window.PLOTLYENV = window.PLOTLYENV || {};
+                  if (document.getElementById("997b6d83-e642-40ee-a53f-513e177a68ba")) {
+                      Plotly.newPlot(
+                          "997b6d83-e642-40ee-a53f-513e177a68ba",
+                          [{
+                              hole: 0.0,
+                              labels: [2.0, 1.0],
+                              marker: { colors: ["#8ebad9"] },
+                              name: "pol_class_max",
+                              values: [2211359.773836836, 4678083.122128165],
+                              type: "pie"
+                          }],
+                          {
+                              legend: { orientation: "v" },
+                              paper_bgcolor: "rgb(255,255,255)",
+                              plot_bgcolor: "rgb(255,255,255)",
+                              showlegend: true,
+                              // 这里可以保留或简化 layout，按需调整
+                          },
+                          {
+                              scrollZoom: true,
+                              editable: true,
+                              modeBarButtonsToRemove: ["toImage", "sendDataToCloud", "editInChartStudio"],
+                              responsive: true
+                          }
+                      );
+                  }
+              </script>
+              <p>According to the NO2 pie chart, the overall NO2 situation is good, with about 67.9% of the population exposed to the lowest pollution level (Level 1) and 32.1% at Level 2. This indicates that the majority of the population is exposed to relatively low levels of NO₂ and that areas of high concentrations are confined to limited areas.</p>
+              <div id="5d82ba38-1b4e-49bb-8d77-3eb4977319ab" class="plotly-graph-div" style="height:600px; width:100%;"></div>
+
+              <script>
+                window.PLOTLYENV = window.PLOTLYENV || {};
+                if (document.getElementById("5d82ba38-1b4e-49bb-8d77-3eb4977319ab")) {
+                    Plotly.newPlot(
+                        "5d82ba38-1b4e-49bb-8d77-3eb4977319ab",
+                        [{"hole":0.0,"labels":[2.0,3.0],"marker":{"colors":["#8ebad9"]},"name":"pol_class_max","values":[320839.6354932296,6568603.2604717715],"type":"pie"}],
+                        {"legend":{"orientation":"v"},"showlegend":true},
+                        {"responsive": true}
+                    );
+                }
+              </script>
+              <p>According to the PM2.5 pie chart, the overall PM2.5 situation is poor with only 4.66% of the population exposed to level 2 pollution and 95.3% at level 3. This indicates that the majority of the population has a relatively high level of exposure to PM2.5, and the overall situation of aerosol pollution is critical.</p>
+          </div>
+          </div>
+        </div>
+        <div class="wrapper style4 container">
+          <!-- Content -->
+          <div>
+            <div>
+              <h2 style="text-align: center">3. Explore Analytics</h2>
+              <h3 style="text-align: center;">Potential source analysis</h3>
+              <div style="text-align: center; margin-bottom: 3em">
+                <figure>
+                  <img
+                    src="../images/result/cluster.png"
+                    alt=""
+                    style="max-width: 100%; height: auto"
+                  /><figcaption>Sofia Angle Cluster Map</figcaption>
+                </figure>
+              </div>
+              <p>
+                The analysis shows the results of clustering of the source paths of air masses based on Sofia (the capital of Bulgaria) as a receiving point, calculated by backward trajectory analysis of multiyear meteorological data (e.g., possibly using the HYSPLIT model). The different colored curves represent different Angle Clusters, where each type of path indicates the typical direction of air mass transport from the source region to Sofia and its probability of occurrence on a given time scale.
+              <div>The pollutants in Sofia are influenced by multidirectional air masses, with a remarkable diversity of climate and wind transport paths. The westerly belt dominates the overall frequency, while southward and easterly air mass sources are not negligible. This reflects the fact that the Balkan region, where Sofia is located, is situated at the crossroads of several climatic zones and air masses, and is influenced by the westerly wind belt, but at the same time it is often influenced by the subtropical high pressure circulation in the south and by cold high-pressure systems in Eastern Europe.
+              </div></p>
+
+              <h3 style="text-align: center">Time series analysis</h3>
+              <div style="text-align: center; margin-bottom: 3em">
+                <figure>
+                  <img
+                    src="../images/result/animation.gif"
+                    alt=""
+                    style="max-width: 100%; height: auto"
+                  /><figcaption>Chronological change in pollution concentrations in December 2013-2022</figcaption>
+                </figure>
+              </div>
+              <p>
+                The analysis shows that the air pollution distribution in Bulgaria possesses a temporal pattern, so the month of December was used as an example to dig deeper into the temporal changes over the past 10 years. Over the period from 2013 to 2022, both PM2.5 and NO₂ concentrations in December revealed recurring pollution episodes, with variability in magnitude and timing across years.
+                <div>Key observations include: - Seasonal peaks commonly appeared before or during the Christmas period (Dec 22–26), suggesting strong influence from heating and holiday-related emissions.
+                - Nighttime (00:00) PM2.5 values were consistently higher than those at 12:00, indicating pollutant accumulation during stable nocturnal conditions.
+                - NO₂ fluctuations were sharper and more frequent, especially at 12:00, reflecting sensitivity to daytime traffic and photochemical processes.
+                - The year 2020 showed notably lower NO₂ levels, likely due to reduced mobility during the COVID-19 pandemic.
+                - In contrast, 2013, 2015, and 2022 emerged as years with high pollution intensity, featuring multiple peaks exceeding 60 μg/m³ for PM2.5.
+                </div>
+                These patterns highlight the dual role of meteorological conditions and anthropogenic activities in shaping urban air quality during the winter season.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/browser.min.js"></script>
+    <script src="/js/breakpoints.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
