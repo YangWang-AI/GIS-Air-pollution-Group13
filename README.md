@@ -1,5 +1,6 @@
 # Geographic Information Systems Project
 This repository contains all the files for the Geographic Information Systems's course project held at Politecnico di Milano, Academic Year 2024-2025.
+
 WebGIS website：https://YangWang-AI.github.io/GIS-Air-pollution-Group13/
 
 <br>
@@ -15,9 +16,9 @@ Air pollution is the presence of harmful substances in the air, including gases 
 Throughout the GIS Project we will harness the availability of free and open geospatial data (e.g., Copernicus) to study the historical trends of air pollutants (e.g., NO2, PMs) in relation to environmental variables (e.g., Land cover) and evaluate exceedance above the recommended guidelines.
 
 ## Project Objectives
-• Analyze historical time-series air quality data in relation to land cover types to detect long-term environmental trends.
-• Assess population exposure to air pollution, emphasizing areas with pollutant exceedances relative to health guidelines.
-• Create an interactive WebGIS and project webpage to visualize results and communicate key findings eectively.
+- Analyze historical time-series air quality data in relation to land cover types to detect long-term environmental trends.
+- Assess population exposure to air pollution, emphasizing areas with pollutant exceedances relative to health guidelines.
+- Create an interactive WebGIS and project webpage to visualize results and communicate key findings effectively.
 
 ## Project Highlight
 Further exploration of spatial and temporal patterns of contaminants around Sofia using potential source and time series analysis
@@ -34,5 +35,6 @@ Further exploration of spatial and temporal patterns of contaminants around Sofi
  https://bootstrapmade.com/
 
   ### QGISLab13
- Mandatory deliverables：https://1drv.ms/f/c/5759bc471da2678c/EljuKay95j9ElNH3uqjnOCABkARCaWDdOa83jGW1gHfPeQ?e=1trzbE
- Published WebGIS website：https://YangWang-AI.github.io/GIS-Air-pollution-Group13/
+ - Mandatory deliverables：
+ https://1drv.ms/f/c/5759bc471da2678c/EljuKay95j9ElNH3uqjnOCABkARCaWDdOa83jGW1gHfPeQ?e=1trzbE
+ - Published WebGIS website：https://YangWang-AI.github.io/GIS-Air-pollution-Group13/
