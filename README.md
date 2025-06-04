@@ -32,8 +32,6 @@ Further exploration of spatial and temporal patterns of contaminants around Sofi
  
  https://bootstrapmade.com/
 
-  ### Example
- https://fededengi.github.io/polimi-webgis-class-2023/index.html 
+  ### QGISLab13
+ Mandatory deliverables：https://1drv.ms/f/c/5759bc471da2678c/EljuKay95j9ElNH3uqjnOCABkARCaWDdOa83jGW1gHfPeQ?e=1trzbE
  
-  <!-- ### QGISLab08
- https://polimi365-my.sharepoint.com/:f:/r/personal/10963273_polimi_it/Documents/QGISLab08?csf=1&web=1&e=uqiDno -->
