@@ -16,14 +16,15 @@
 
     
     
-    <link rel="stylesheet" href="/assets/custom-styles.eea60691.css">
-    <link rel="stylesheet" href="/assets/main.9e8ed268.css">
+    <script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+    <link rel="stylesheet" href="/GIS-Air-pollution-Group13/assets/custom-styles.14a9bfb7.css">
+    <link rel="stylesheet" href="/GIS-Air-pollution-Group13/assets/main.a1dcf28f.css">
   </head>
   <body class="left-sidebar is-preload">
     <div id="page-wrapper">
       <!-- Header -->
       <header id="header">
-        <h1 id="logo">Landslide Map_Group08 - Result</h1>
+        <h1 id="logo">Mapping Air Quality Group13 - Result</h1>
         <nav id="nav">
           <ul>
             <li class="current"><a href="../index.html">HOME</a></li>
@@ -43,8 +44,7 @@
           </h2>
           <p style="font-size: 1.5em">
             In this part, you can explore the final results of our analysis. The
-            results is divided into 2 parts, the first part is the
-            susceptibility map and the second part is exposure assessment.
+            results is divided into 3 parts, The first part is a spatio-temporal analysis of air pollution, the second part is an exploration of spatial patterns of air pollution and population exposure, and the third part is a time series analysis and potential source analysis.
           </p>
         </header>
 
@@ -53,32 +53,21 @@
           <!-- Content -->
           <div>
             <div>
-              <h2 style="text-align: center">1. SUSCEPTIBILITY MAPS RESULTS</h2>
+              <h2 style="text-align: center">1. Spatio-temporal analysis of air pollution</h2>
               <div style="text-align: center; margin-bottom: 3em">
                 <figure>
                   <img
-                    src="/assets/LandslideSusceptibilityMap.3d4a1058.png"
+                    src="/GIS-Air-pollution-Group13/assets/seasonality.aad90f27.png"
                     alt=""
-                    style="max-width: 50%; height: auto"
-                  />
-                </figure>
-
-                <figure>
-                  <img
-                    src="/assets/ErrorMatrix.6c21d879.jpg"
-                    alt=""
-                    style="max-width: 50%; height: auto"
-                  />
-                  <figcaption>Error Matrix</figcaption>
+                    style="max-width: 100%; height: auto"
+                  /><figcaption>Seasonal variation of pollutants</figcaption>
                 </figure>
               </div>
               <p>
-                After performing the classification, we need to assess the
-                accuracy. In order to do that, we performed a script to validate
-                the accuracy of 300 testing points. And here is the error
-                matrix. We can see that the overall accuracy reaches 83%, which
-                means it is a good result basically.
+                First we calculated the annual mean for each pollutant and analyzed the Annual Average Difference from 5-year Mean and the ten-year seasonal aggregation, and found that the pollution in Bulgaria reached a ten-year peak in 16 years, and has decreased in recent years. It shows a seasonal distribution pattern, with lighter pollution in summer and the most severe air pollution in winter.
               </p>
+              <p>Secondly, it also has certain characteristics in space, where the distribution of pollutants is concentrated in polycentric form, radiating outward around major metropolitan areas.</p>
+              <p>We therefore considered focusing on December of the calendar year in our subsequent time-series analysis.</p>
             </div>
           </div>
         </div>
@@ -87,37 +76,113 @@
           <!-- Content -->
           <div>
             <div>
-              <h2 style="text-align: center">2. Exposure Assessment</h2>
+              <h2 style="text-align: center">2. Exploration of spatial patterns of air pollution and population exposure</h2>
               <div style="text-align: center; margin-bottom: 3em">
                 <figure>
                   <img
-                    src="/assets/pop_class_count.e96ac9e3.png"
+                    src="/GIS-Air-pollution-Group13/assets/Bulgaria_no2_2020_bivariate.d5d9a9bc.jpg"
                     alt=""
-                    style="max-width: 30%; height: auto"
+                    style="max-width: 49%; height: auto"
                   />
-                  <figcaption>Population Exposure Proportion</figcaption>
+                  <img
+                  src="/GIS-Air-pollution-Group13/assets/Bulgaria_pm2p5_2020_bivariate.bf849e60.jpg"
+                  alt=""
+                  style="max-width: 49%; height: auto"
+                />
+                  <figcaption>Bivariate regional analysis of pollutants</figcaption>
                 </figure>
               </div>
               <p>
-                Based on the pie chart, we can analyze the population
-                distribution concerning landslide risk levels as follows:
-                <br />The majority of the population, 72%, faces a low risk of
-                landslides. This indicates that most people live in relatively
-                safe areas with minimal threat from landslides. <br />However,
-                28% of the population is distributed across moderate to very
-                high-risk areas. Specifically, 7% of the population is at
-                moderate risk, 11% is in high-risk areas, and a concerning 10%
-                lives in areas with a very high risk of landslides. These
-                populations are significantly more vulnerable and may face
-                severe threats to their lives and property due to potential
-                landslides. <br />In summary, while most of the population is in
-                low-risk areas, a notable portion remains at varying degrees of
-                risk. It is crucial to monitor and implement preventive and
-                emergency measures in high and very high-risk areas to mitigate
-                the potential impact of landslides. Authorities and relevant
-                organizations should prioritize the safety and preparedness of
-                these vulnerable populations to reduce the risks associated with
-                landslides.
+                Based on the bivariate maps of pollutants, we can well reveal their spatial patterns, especially the degree of their air pollution is somewhat positively correlated with human economic activities. Sofia, the capital region of Bulgaria, is a highly polluted and densely populated area.
+              </p>
+              <P>To better quantify the actual impact of pollution on the population, we generated pie charts based on the bivariate map classifications</P>
+              <div id="997b6d83-e642-40ee-a53f-513e177a68ba" style="height:600px; width:100%;"></div>
+              <script>
+                  window.PLOTLYENV = window.PLOTLYENV || {};
+                  if (document.getElementById("997b6d83-e642-40ee-a53f-513e177a68ba")) {
+                      Plotly.newPlot(
+                          "997b6d83-e642-40ee-a53f-513e177a68ba",
+                          [{
+                              hole: 0.0,
+                              labels: [2.0, 1.0],
+                              marker: { colors: ["#8ebad9"] },
+                              name: "pol_class_max",
+                              values: [2211359.773836836, 4678083.122128165],
+                              type: "pie"
+                          }],
+                          {
+                              legend: { orientation: "v" },
+                              paper_bgcolor: "rgb(255,255,255)",
+                              plot_bgcolor: "rgb(255,255,255)",
+                              showlegend: true,
+                              // 这里可以保留或简化 layout，按需调整
+                          },
+                          {
+                              scrollZoom: true,
+                              editable: true,
+                              modeBarButtonsToRemove: ["toImage", "sendDataToCloud", "editInChartStudio"],
+                              responsive: true
+                          }
+                      );
+                  }
+              </script>
+              <p>According to the NO2 pie chart, the overall NO2 situation is good, with about 67.9% of the population exposed to the lowest pollution level (Level 1) and 32.1% at Level 2. This indicates that the majority of the population is exposed to relatively low levels of NO₂ and that areas of high concentrations are confined to limited areas.</p>
+              <div id="5d82ba38-1b4e-49bb-8d77-3eb4977319ab" class="plotly-graph-div" style="height:600px; width:100%;"></div>
+
+              <script>
+                window.PLOTLYENV = window.PLOTLYENV || {};
+                if (document.getElementById("5d82ba38-1b4e-49bb-8d77-3eb4977319ab")) {
+                    Plotly.newPlot(
+                        "5d82ba38-1b4e-49bb-8d77-3eb4977319ab",
+                        [{"hole":0.0,"labels":[2.0,3.0],"marker":{"colors":["#8ebad9"]},"name":"pol_class_max","values":[320839.6354932296,6568603.2604717715],"type":"pie"}],
+                        {"legend":{"orientation":"v"},"showlegend":true},
+                        {"responsive": true}
+                    );
+                }
+              </script>
+              <p>According to the PM2.5 pie chart, the overall PM2.5 situation is poor with only 4.66% of the population exposed to level 2 pollution and 95.3% at level 3. This indicates that the majority of the population has a relatively high level of exposure to PM2.5, and the overall situation of aerosol pollution is critical.</p>
+          </div>
+          </div>
+        </div>
+        <div class="wrapper style4 container">
+          <!-- Content -->
+          <div>
+            <div>
+              <h2 style="text-align: center">3. Explore Analytics</h2>
+              <h3 style="text-align: center;">Potential source analysis</h3>
+              <div style="text-align: center; margin-bottom: 3em">
+                <figure>
+                  <img
+                    src="/GIS-Air-pollution-Group13/assets/cluster.22bc8149.png"
+                    alt=""
+                    style="max-width: 100%; height: auto"
+                  /><figcaption>Sofia Angle Cluster Map</figcaption>
+                </figure>
+              </div>
+              <p>
+                The analysis shows the results of clustering of the source paths of air masses based on Sofia (the capital of Bulgaria) as a receiving point, calculated by backward trajectory analysis of multiyear meteorological data (e.g., possibly using the HYSPLIT model). The different colored curves represent different Angle Clusters, where each type of path indicates the typical direction of air mass transport from the source region to Sofia and its probability of occurrence on a given time scale.
+              <div>The pollutants in Sofia are influenced by multidirectional air masses, with a remarkable diversity of climate and wind transport paths. The westerly belt dominates the overall frequency, while southward and easterly air mass sources are not negligible. This reflects the fact that the Balkan region, where Sofia is located, is situated at the crossroads of several climatic zones and air masses, and is influenced by the westerly wind belt, but at the same time it is often influenced by the subtropical high pressure circulation in the south and by cold high-pressure systems in Eastern Europe.
+              </div></p>
+
+              <h3 style="text-align: center">Time series analysis</h3>
+              <div style="text-align: center; margin-bottom: 3em">
+                <figure>
+                  <img
+                    src="/GIS-Air-pollution-Group13/assets/animation.626b2a87.gif"
+                    alt=""
+                    style="max-width: 100%; height: auto"
+                  /><figcaption>Chronological change in pollution concentrations in December 2013-2022</figcaption>
+                </figure>
+              </div>
+              <p>
+                The analysis shows that the air pollution distribution in Bulgaria possesses a temporal pattern, so the month of December was used as an example to dig deeper into the temporal changes over the past 10 years. Over the period from 2013 to 2022, both PM2.5 and NO₂ concentrations in December revealed recurring pollution episodes, with variability in magnitude and timing across years.
+                <div>Key observations include: - Seasonal peaks commonly appeared before or during the Christmas period (Dec 22–26), suggesting strong influence from heating and holiday-related emissions.
+                - Nighttime (00:00) PM2.5 values were consistently higher than those at 12:00, indicating pollutant accumulation during stable nocturnal conditions.
+                - NO₂ fluctuations were sharper and more frequent, especially at 12:00, reflecting sensitivity to daytime traffic and photochemical processes.
+                - The year 2020 showed notably lower NO₂ levels, likely due to reduced mobility during the COVID-19 pandemic.
+                - In contrast, 2013, 2015, and 2022 emerged as years with high pollution intensity, featuring multiple peaks exceeding 60 μg/m³ for PM2.5.
+                </div>
+                These patterns highlight the dual role of meteorological conditions and anthropogenic activities in shaping urban air quality during the winter season.
               </p>
             </div>
           </div>
@@ -126,13 +191,13 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.dropotron.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/browser.min.js"></script>
-    <script src="/js/breakpoints.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.dropotron.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.scrolly.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.scrollex.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/browser.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/breakpoints.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/util.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/main.js"></script>
   </body>
 </html>

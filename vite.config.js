@@ -10,7 +10,7 @@ export default {
     // Change to the name of your repository
     // According to https://vitejs.dev/guide/static-deploy.html 
     //base: '/Landslide_group8/', 
-
+    base: '/GIS-Air-pollution-Group13/',
     publicDir: "public",
 
     // Options for the build command

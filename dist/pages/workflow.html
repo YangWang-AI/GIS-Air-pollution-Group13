@@ -16,14 +16,15 @@
 
     
     
-    <link rel="stylesheet" href="/assets/custom-styles.eea60691.css">
-    <link rel="stylesheet" href="/assets/main.9e8ed268.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="/GIS-Air-pollution-Group13/assets/custom-styles.14a9bfb7.css">
+    <link rel="stylesheet" href="/GIS-Air-pollution-Group13/assets/main.a1dcf28f.css">
   </head>
   <body class="left-sidebar is-preload">
     <div id="page-wrapper">
       <!-- Header -->
       <header id="header">
-        <h1 id="logo">Landslide Map_Group08 - Workflow</h1>
+        <h1 id="logo">Mapping Air Quality Group13 - Workflow</h1>
         <nav id="nav">
           <ul>
             <li class="current"><a href="../index.html">HOME</a></li>
@@ -43,331 +44,39 @@
           </h2>
           <p style="font-size: 1.5em">
             In this part, we will show you all the steps we did to obtain all
-            our final results including susceptibility map and exposure
-            assessment.
+            our final results including Time series analysis and potential source analysis.
           </p>
         </header>
         <!--Step1-->
         <div class="wrapper style4 container">
           <div>
             <div>
-              <h2 style="text-align: center">Step1 Data Preprocessing</h2>
+              <h2 style="text-align: center">Step1 Data Collection</h2>
               <!--Origin Data-->
               <p>
                 <strong>
-                  To ensure consistency and optimize the processing of our
-                  spatial data, we first <u>reproject</u> all raw datasets to
-                  the same coordinate system, specifically aligning with the DTM
-                  data's coordinate system (EPSG:32632 - WGS 84 / UTM zone 32N).
-                  Subsequently, we <u>clip</u> all datasets to the study area,
-                  which not only reduces data volume but also enhances data
-                  processing efficiency and memory usage. Finally, we
-                  <u>resample</u> the datasets to achieve uniform resolution
-                  across all rasters, aligning them to the DTM's resolution of 5
-                  meters.</strong
-                >
+                  <p>• Download CAMS NetCDF datasets for NO₂ and PM2.5 (2013–2022)</p>
+                  <p>• Retrieve WorldPop 2020 population raster</p>
+                  <p>• Acquire GAUL Level-2 administrative boundaries</p>
+                  <p>• Obtain ESA CCI Land Cover raster (2013-2022)</p></strong>
               </p>
-              <h3 style="text-align: center">Basic Data</h3>
-              <div class="container text-center">
-                <div class="row">
-                  <div class="col">
-                    <figure>
-                      <img
-                        src="/assets/dtm.3ddb2351.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>
-                        DTM<br />Raster dataset representing the terrain surface
-                        consisting of XYZ coordinates. Not only elevation but
-                        helps in deriving additional information.
-                      </figcaption>
-                    </figure>
-                  </div>
-                  <div class="col">
-                    <figure>
-                      <img
-                        src="/assets/ndvi.92ad82e5.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>
-                        NDVI<br />The Normalized Difference Vegetation Index
-                        (NDVI) is an indicator of the greenness of the biomas
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <figure>
-                      <img
-                        src="/assets/dusaf.e2acde62.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>
-                        Land Use and Land Cover<br />A regional product (DUSAF
-                        6.) is used. It is based on aerial photogrammetry and
-                        represents eight classes.
-                      </figcaption>
-                    </figure>
-                  </div>
-                  <div class="col">
-                    <figure>
-                      <img
-                        src="/assets/rivers.4935f8a7.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>
-                        Rivers<br />For each river network, buffer zones were
-                        produced at 50, 100, 200, 500, and more than 500 m.
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <figure>
-                      <img
-                        src="/assets/roads.f109db61.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>
-                        Roads<br />Road networks. For each road network, buffer
-                        zones were produced at 50, 100, 200, 500, and more than
-                        500 m.
-                      </figcaption>
-                    </figure>
-                  </div>
-                  <div class="col">
-                    <figure>
-                      <img
-                        src="/assets/faults.e3f49733.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>
-                        Geological Faults<br />For each fault, buffer zones were
-                        produced at 50, 100, 200, 500, and more than 500 m.
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-
-                <!--Computed Data-->
-                <h3 style="text-align: center; margin-top: 3em">
-                  Computed Data From DTM
-                </h3>
-                <div class="container text-center">
-                  <div class="row">
-                    <div class="col">
-                      <figure>
-                        <img
-                          src="/assets/slope.228bd89e.png"
-                          alt=""
-                          style="max-width: 100%; height: auto"
-                        />
-                        <figcaption>
-                          Slope<br />The angle of slope is in a strong
-                          relationship with the occurrence of landslides. With
-                          the increase of the angle the shear stress is
-                          increasing and, the possibility of a movement is
-                          higher.
-                        </figcaption>
-                      </figure>
-                    </div>
-                    <div class="col">
-                      <figure>
-                        <img
-                          src="/assets/aspect.1d3c3b2e.png"
-                          alt=""
-                          style="max-width: 100%; height: auto"
-                        />
-                        <figcaption>
-                          Aspect<br />It depicts the direction of the slope. The
-                          orientation of the slope is related to the soil
-                          moisture content and vegetation density.
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <figure>
-                        <img
-                          src="/assets/plan.6aacf9ed.png"
-                          alt=""
-                          style="max-width: 100%; height: auto"
-                        />
-                        <figcaption>
-                          Plan Curvature<br />The Plan curvature is
-                          perpendicular to the direction of the maximum slope.
-                          Planform curvature relates to the convergence and
-                          divergence of flow across a surface.
-                        </figcaption>
-                      </figure>
-                    </div>
-                    <div class="col">
-                      <figure>
-                        <img
-                          src="/assets/profile.e8f9ee5b.png"
-                          alt=""
-                          style="max-width: 100%; height: auto"
-                        />
-                        <figcaption>
-                          Profile Curvature<br />The Profile curvature is
-                          parallel to the slope and indicates the direction of
-                          maximum slope. It affects the acceleration and
-                          deceleration of flow across the surface.
-                        </figcaption>
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-
-                <!--LZ and NLZ-->
-                <h3 style="text-align: center; margin-top: 3em">
-                  Landslide Zone and Non Landslide Zone
-                </h3>
-                <div class="container text-center">
-                  <div class="row">
-                    <div class="col">
-                      <figure>
-                        <img
-                          src="/assets/LZ_unioned.c7f7f967.png"
-                          alt=""
-                          style="max-width: 100%; height: auto"
-                        />
-                        <figcaption>Landslide Zone</figcaption>
-                      </figure>
-                    </div>
-                    <div class="col">
-                      <figure>
-                        <img
-                          src="/assets/NLZ.5b3219f0.png"
-                          alt=""
-                          style="max-width: 100%; height: auto"
-                        />
-                        <figcaption>Non Landslide Zone</figcaption>
-                      </figure>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p style="margin-top: 3em">
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
                 <strong>
-                  We used the landslide inventory to define the landslide zone.
-                  And for non landslide zone, We defined this areas as the
-                  slopes with angle smaller then 20° or grater then 70° using
-                  the raster calculator. Because of some overlappings between LZ
-                  and NLZ, we remove all the overlapping parts from the NLZ. And
-                  because there were too many small patches of pixels, we
-                  removed them with a threshold of 25. Thereby, we obtain the
-                  final LZ and NLZ.<br /><br />Then, we split both zones into
-                  training dataset and testing dataset with a ration of 70%/30%.
-                  For futher operations, we merged 2 layer into 1 layer and
-                  randomly selected 1000 points(350 points/150 points from each
-                  of the two layers to form the training/testing set
-                  respectively.) in total inside the polygons.
-                </strong>
+                  <p>Firstly, according to the experimental requirements, the Bulgarian vectors were extracted by downloading CAMS NetCDF datasets for NO₂ and PM2.5, Retrieve WorldPop 2020 population raster, Acquire GAUL Level-2 administrative boundaries, Obtain ESA CCI Land Cover 2022 raster.</p>
+                  <p>Then process CAMS NetCDF data to supplement the December 2022 summary into monthly raster maps.</p>
+                 </strong>
               </p>
-              <table class="table" style="text-align: center">
-                <thead>
-                  <tr>
-                    <th scope="col">Train_Test</th>
-                    <th scope="col">Hazard</th>
-                    <th scope="col">Number of Points</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Training</th>
-                    <td>1(NLZ)</td>
-                    <td>350</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Training</th>
-                    <td>2(LZ)</td>
-                    <td>350</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Testing</th>
-                    <td>1(NLZ)</td>
-                    <td>150</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Testing</th>
-                    <td>2(LZ)</td>
-                    <td>150</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="container text-center">
-                <div class="row">
-                  <div class="col">
-                    <figure>
-                      <img
-                        src="/assets/LZ_NLZ_merged.1c60a108.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>Mergence of LZ and NLZ</figcaption>
-                    </figure>
-                  </div>
-                  <div class="col">
-                    <figure style="text-align: center">
-                      <img
-                        src="/assets/Train_Test_Points.5d9fd8fc.png"
-                        alt=""
-                        style="width: 100%; height: auto"
-                      />
-                      <figcaption>Training/Testing Points</figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-              <p style="margin-top: 3em">
-                <strong>
-                  Then we sampled the environmental factors with the training
-                  and testing point layers. As you can see below, this is the
-                  attribute table after sampling.
-                </strong>
-              </p>
-              <div class="container text-center">
-                <div class="row">
-                  <div class="col-9">
-                    <figure>
-                      <img
-                        src="/assets/trainingPointsSampled.e8c29404.jpg"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                      <figcaption>
-                        Training and Testing Points Sampled
-                      </figcaption>
-                    </figure>
-                  </div>
-                  <div
-                    class="col-3"
-                    style="padding-left: 15px; padding-top: 10px"
-                  >
-                    <figure>
-                      <img
-                        src="/assets/factors.8810f827.png"
-                        alt=""
-                        style="max-width: 100%; height: auto"
-                      />
-                    </figure>
-                  </div>
-                </div>
-              </div>
+              <figure style="text-align: center">
+                <img
+                  src="/GIS-Air-pollution-Group13/assets/lab_step1.6b121ff0.png"
+                  alt=""
+                  style="width: 100%; height: 100%"/>
+                <figcaption>Pollutants December 2022 Raster Map</figcaption>
+              </figure>
             </div>
           </div>
         </div>
-
         <!--Step2-->
         <div class="wrapper style4 container">
           <!-- Content -->
@@ -375,82 +84,112 @@
           <div>
             <div>
               <h2 style="text-align: center">
-                Step2 Susceptibility Map Generation
+                Step2 Data Preprocessing
               </h2>
               <p style="margin-top: 3em">
                 <strong>
-                  For the generation of the susceptibility map we use Dzetsaka
-                  plugin in QGIS with random forest. To generate the
-                  susceptibility map, we used raster calculator to convert
-                  classification and confidence to probability. Then we
-                  validated the accuracy of the our output using python
-                  script.</strong
-                >
+                  <p>• Clip all rasters to the national boundary of Bulgaria</p>
+                  <p>• population raster into five classes</p>
+                  <p>• Reclassify pollutant concentration into five risk levels</p>
+                  <p>• Simplification of the ESA CCI Land Cover 2013-2022 raster based on the IPCC generic model</p>
+                  <p>• Convert monthly/annual NetCDF data into raster layers</p>
+                  <p>• Calculation of a plot of the difference between a calendar year and its average over the previous five years</p></strong>
+              </p>
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
+                <strong>
+                  <p>First, we used QGIS to summarize the processed monthly data and calculate annual and seasonal averages. To analyze inter-annual as well as seasonal variations in pollutants.</p>
+                  <p>Then, We then reclassify population, pollutant concentration, and land cover according to the relevant norms</p>
+                 </strong>
               </p>
               <figure style="text-align: center">
                 <img
-                  src="/assets/LandslideSusceptibilityMap.3d4a1058.png"
+                  src="/GIS-Air-pollution-Group13/assets/EU_concentration_levels.6a31ee8d.png"
                   alt=""
-                  style="width: 50%; height: auto"
+                  style="width: 100%; height: 100%"
                 />
-                <figcaption>Susceptibility Map</figcaption>
+                <figcaption>EU concentration levels</figcaption>
               </figure>
+              <p></p>
+              <figure style="text-align: center">
+                <img
+                  src="/GIS-Air-pollution-Group13/assets/Population_level.8eb3dccd.png"
+                  alt=""
+                  style="width: 100%; height: auto"
+                />
+                <figcaption>Population level</figcaption>
+              </figure>
+              <p></p>
+              <figure style="text-align: center">
+                <img
+                  src="/GIS-Air-pollution-Group13/assets/Landcover_classification.e338f644.png"
+                  alt=""
+                  style="width: 100%; height: 100%"/>
+                <figcaption>Landcover classification</figcaption>
+              </figure>
+              
+                <figure style="text-align: center">
+                  <img
+                    src="/GIS-Air-pollution-Group13/assets/Bulgaria_LC_reclassiffied_2022.0ddb2a52.png"
+                    alt=""
+                    style="width: 100%; height: 100%"/>
+                  <figcaption>Landcover reclassification 2022</figcaption>
+                </figure>
+                <p></p>
+                <strong>
+                  <p>Next, we compute difference maps comparing 2022 with the 2017-2021 average to analyze the deviation of air quality from the recent historical average.</p>
+                 </strong>
+                 <figure style="text-align: center">
+                  <img
+                    src="/GIS-Air-pollution-Group13/assets/Bulgaria_NO2_2017-2021_AAD_map_2022.a65bf6f0.jpg"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                    <img
+                    src="/GIS-Air-pollution-Group13/assets/Bulgaria_PM2p5_2017-2021_AAD_map_2022_qgis.31225361.jpg"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                  <figcaption>Pollutants Plot of differences between 2022 and 2017-2021 averages</figcaption>
+                </figure>
+
+                 <strong>
+                  <p>Take care to ensure consistency in the data to ensure that the data are at the same resolution, Lets resample the CAMS (Average pollutant maps 
+                    all years) to match the ESA LC product.</p>
+                 </strong>
+              </p>
             </div>
           </div>
         </div>
-
-        <!--Step3-->
+          <!--Step4-->
         <div class="wrapper style4 container">
           <!-- Content -->
-
           <div>
             <div>
-              <h2 style="text-align: center">
-                Step3 Data preprocessing for exposure assessment
-              </h2>
+              <h2 style="text-align: center">step3 Land Cover-Based Exposure Analysis</h2>
               <p style="margin-top: 3em">
                 <strong>
-                  To analyze the exposure assessment we downloaded the
-                  population raster dataset (WorldPop map) and we reprojected
-                  the population raster dataset using the same CRS of layers
-                  obtained in the previous steps. We reclassified the
-                  susceptibility raster map to 4 classes:</strong
-                >
+                  <p>• Convert ESA CCI 2022 land cover raster to vector polygons</p>
+                  <p>• Retain only the "Settlement/Urban" land cover class</p>
+                  <p>• Dissolve urban polygons into a single geometry</p>
+                  <p>• Use the dissolved urban mask to extract average and maximum pollutant exposure via zonal statistics</p></strong>
               </p>
-              <table class="table" style="text-align: center">
-                <thead>
-                  <tr>
-                    <th scope="col">Probability</th>
-                    <th scope="col">Class</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">[0,25)</th>
-                    <td>Low</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">[25,50)</th>
-                    <td>Moderate</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">[50,75)</th>
-                    <td colspan="2">High</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">[75,100]</th>
-                    <td colspan="2">Very High</td>
-                  </tr>
-                </tbody>
-              </table>
-              <figure style="text-align: center">
-                <img
-                  src="/assets/LandslideSusceptibilityMap_reclass.fe5bec15.png"
-                  alt=""
-                  style="width: 50%; height: auto"
-                />
-                <figcaption>Susceptibility Map Reclassified</figcaption>
-              </figure>
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
+                <strong>
+                  <p>We convert only the built-up areas to vectors and perform partition statistics (zoning statistics) on them.</p>
+                  <p>Then we used the layer Joins to add Min and Max for all years 2013-2022.</p>
+                 </strong>
+                 <figure style="text-align: center">
+                  <img
+                    src="/GIS-Air-pollution-Group13/assets/Bulgaria_no2_zonal_statistics_2013-2022.8cad2600.png"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                    <img
+                    src="/GIS-Air-pollution-Group13/assets/Bulgaria_pm2p5_zonal_statistics_2013-2022.956afb88.png"
+                    alt=""
+                    style="width: 49%; height: 100%"/>
+                  <figcaption>Minimum and maximum trends for camp pollutants for the period 2013-2022</figcaption>
+                </figure>
+              </p>
             </div>
           </div>
         </div>
@@ -461,27 +200,78 @@
 
           <div>
             <div>
-              <h2 style="text-align: center">Step4 Exposure Assessment</h2>
+              <h2 style="text-align: center">
+                Step4 Zonal Statistics
+              </h2>
               <p style="margin-top: 3em">
                 <strong>
-                  For the last step, we used QGIS Raster layer zonal statistics
-                  tool to compute the population count in each class.</strong
-                >
+                  <p>• Compute zonal population class median per administrative unit</p>
+                  <p>• Extract maximum pollutant values per unit using zonal statistics</p>
+                  <p>• Combine population and pollution data to generate a bivariate exposure indicator</p></strong>
+              </p>
+              <h3 style="text-align: center">Special Steps</h3>
+              <p>
+                <strong>
+                  <p>First, we use QGIS, in quantile mode, to divide the data into five classes such that each class contains the same number of features or pixels, regardless of the actual range of values.</p>
+                  <p>Then, we use the Bulgarian GAUL L2 data to calculate raster statistics for pollutants and population.</p>
+                  <figure style="text-align: center">
+                    <img
+                      src="/GIS-Air-pollution-Group13/assets/Bulgaria_no2_concentration_map_2020.284cac39.jpg"
+                      alt=""
+                      style="width: 49%; height: 100%"/>
+                      <img
+                      src="/GIS-Air-pollution-Group13/assets/Bulgaria_pm2p5_concentration_map_2020 .8ab77311.jpg"
+                      alt=""
+                      style="width: 49%; height: 100%"/>
+                    <figcaption>Pollutant Concentration 2020 Hierarchical Map</figcaption>
+                  </figure>
+                  <p>Then to reveal spatial patterns of interactions and to explore heavily polluted and densely populated areas, we define the \(bivariate=pollutant class max*10+population class median\).</p>
+                 </strong>
+                 <figure style="text-align: center">
+                  <img
+                    src="/GIS-Air-pollution-Group13/assets/doublevarive.d88f5e4e.png"
+                    alt=""
+                    style="max-width: 100%; height: auto"
+                  />
+                  <figcaption>Bivariate schema</figcaption>
+                </figure>
               </p>
             </div>
           </div>
-        </div>
+        </div>      
+ <!--Step5-->
+ <div class="wrapper style4 container">
+  <!-- Content -->
+
+  <div>
+    <div>
+      <h2 style="text-align: center">Step5 Highlight</h2>
+      <p style="margin-top: 3em">
+        <strong>
+          <p>• Time Series Analysis</p>
+          <p>Data used in this analysis are derived from CAMS (Copernicus Atmosphere Monitoring Service) NetCDF datasets.
+Hourly pollutant concentrations of PM2.5 and NO₂ were extracted for December (2013–2022) using QGIS mesh tools.
+One point was selected from a densely urbanized area where pollutant concentrations were relatively high in the annual average distribution. This point was used as a representative location for time-series extraction.
+The values at 00:00 and 12:00 were exported and visualized using MATLAB.</p>
+          <p>• potential source analysis</p>
+          <p>Based on the Global Data Assimilation System Reanalysis of Meteorological Data (GDAS), the backward trajectory model of HYSPLIT was used to simulate the backward trajectory of the air 500m above sofia from December 2022, and the spatial similarity of the trajectories was further computed by applying the angular distance function so as to cluster the trajectories. The direction of the possible sources of pollutants was thus analyzed.</p>
+          <p>The generated maps (e.g., land cover reclassification maps, binary exposure maps combining population and contamination risk, pie charts summarizing population distribution by exposure class, etc.) can be found on the visible page<a href="result.html"> Results </a> and<a href="webgis.html"> WebGIS </a>.</p>
+         </strong>
+      </p>
+    </div>
+  </div>
+</div>        
       </article>
     </div>
 
     <!-- Scripts -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.dropotron.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/browser.min.js"></script>
-    <script src="/js/breakpoints.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.dropotron.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.scrolly.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/jquery.scrollex.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/browser.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/breakpoints.min.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/util.js"></script>
+    <script src="/GIS-Air-pollution-Group13/js/main.js"></script>
   </body>
 </html>
